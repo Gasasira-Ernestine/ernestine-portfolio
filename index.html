@@ -71,7 +71,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .btn:hover .arr{transform:translateX(4px)}
 
 /* HERO */
-.hero{position:relative;padding-block:clamp(40px,6vw,80px) clamp(64px,8vw,110px);overflow:hidden}
+.hero{position:relative;padding-block:clamp(40px,6vw,80px) clamp(40px,5vw,64px);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(59,89,230,.13) 1.2px,transparent 1.2px);background-size:26px 26px;mask-image:radial-gradient(ellipse 70% 60% at 70% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 70% 40%,#000 20%,transparent 75%);pointer-events:none}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.2fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
 .hero-grid>*{min-width:0}
@@ -152,6 +152,57 @@ section{position:relative;padding-block:clamp(72px,9vw,124px)}
 .spot{position:relative;overflow:hidden;isolation:isolate}
 .spot::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(59,89,230,.12),transparent 45%);opacity:0;transition:opacity .3s ease;z-index:-1}
 .spot:hover::before{opacity:1}
+
+/* INTRO VIDEO */
+.intro-sec{padding-block:clamp(8px,2vw,24px) clamp(56px,7vw,88px);position:relative;z-index:3}
+.intro-sec .head h2{font-size:clamp(30px,3.4vw,44px)}
+.intro-sec .head p{font-size:17.5px}
+.vid-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.vid-meta span{font-size:13.5px;font-weight:600;color:var(--brand-dark);background:var(--brand-50);border:1px solid var(--brand-100);padding:7px 13px;border-radius:999px}
+.vid-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(28px,5vw,64px);align-items:center}
+.vid-grid>*{min-width:0}
+.vid-grid .head{margin-bottom:0}
+.vid-points{display:grid;gap:12px;margin-top:22px;padding:0;list-style:none}
+.vid-points li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:#475569}
+.vid-points li span{flex:none;width:30px;height:30px;border-radius:10px;background:var(--brand-50);color:var(--brand);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:14px}
+.vid-frame{position:relative;border-radius:24px;padding:10px;background:linear-gradient(150deg,var(--brand),var(--brand-deep));box-shadow:0 40px 70px -34px rgba(30,47,143,.6);transform:rotate(1.2deg);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.vid-frame:hover{transform:rotate(0) scale(1.01)}
+.vid-box{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--navy)}
+.vid-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid-tag{position:absolute;z-index:2;top:-16px;left:22px;background:#fff;color:var(--ink);border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-weight:600;font-size:13.5px;box-shadow:0 12px 24px -12px rgba(15,23,42,.35);display:flex;gap:8px;align-items:center}
+.vid-tag i{width:8px;height:8px;border-radius:50%;background:#EF4444;animation:pulse 1.8s ease-out infinite}
+.vid-link{display:inline-flex;margin-top:16px;font-weight:600;color:var(--brand);text-decoration:none}
+.vid-link:hover{text-decoration:underline}
+.vid-poster{position:absolute;inset:0;display:block;text-decoration:none;color:#fff;background:radial-gradient(rgba(255,255,255,.10) 1.2px,transparent 1.3px) 0 0/18px 18px,linear-gradient(125deg,var(--navy) 0%,var(--brand-deep) 50%,var(--brand) 100%);overflow:hidden;cursor:pointer}
+.vid-poster .txt{position:absolute;left:6%;top:40%;transform:translateY(-50%);width:34%;display:grid;gap:8px;z-index:4}
+.vid-poster .kick{font-family:var(--hand);font-size:clamp(17px,2.2vw,28px);color:#DCE4FF;transform:rotate(-3deg);transform-origin:left;line-height:1}
+.vid-poster .big{font-family:var(--display);font-weight:800;font-size:clamp(19px,2.8vw,36px);line-height:1.02;letter-spacing:-.04em}
+.vid-poster .small{font-size:clamp(10.5px,1.1vw,14px);color:#C9D3F2}
+.pol{position:absolute;z-index:2;background:#fff;padding:3.2% 3.2% 0;border-radius:6px;box-shadow:0 18px 30px -10px rgba(0,0,0,.55);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.pol img{display:block;width:100%;aspect-ratio:9/10;object-fit:cover;border-radius:3px}
+.pol .cap{display:block;font-family:var(--hand);font-weight:700;color:var(--ink);text-align:center;font-size:clamp(11px,1.5vw,19px);line-height:1;padding:7% 0 8%}
+.pol.back{right:33%;top:8%;width:28%;transform:rotate(-8deg)}
+.pol.back img{object-position:50% 35%}
+.pol.front{right:4%;top:10%;width:35%;transform:rotate(5deg);z-index:3}
+.pol.front img{object-position:45% 25%}
+.vid-poster:hover .pol.back{transform:rotate(-11deg) translate(-6%,-3%)}
+.vid-poster:hover .pol.front{transform:rotate(7deg) translate(3%,-3%)}
+.tape{position:absolute;top:-7%;left:50%;width:38%;height:11%;transform:translateX(-50%) rotate(-4deg);background:rgba(143,166,255,.75);border-radius:2px;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.pol.back .tape{background:rgba(255,214,102,.85);transform:translateX(-50%) rotate(5deg)}
+.stk{position:absolute;z-index:5;pointer-events:none}
+.stk.spark1{right:3%;top:6%;width:clamp(18px,2.6vw,30px);color:#FFD666;animation:twinkle 2.4s ease-in-out infinite}
+.stk.spark2{right:63%;top:9%;width:clamp(12px,1.6vw,18px);color:#fff;animation:twinkle 2.4s ease-in-out -1.2s infinite}
+.stk.heart{right:36%;bottom:8%;width:clamp(18px,2.4vw,28px);color:#FF7AA8;transform:rotate(-12deg)}
+.stk.badge{right:27%;top:3%;background:#fff;color:var(--brand);font-weight:700;font-size:clamp(9px,1vw,12.5px);padding:.45em .9em;border-radius:999px;transform:rotate(-6deg);box-shadow:0 8px 16px -8px rgba(0,0,0,.5);white-space:nowrap}
+@keyframes twinkle{0%,100%{transform:scale(.8) rotate(0);opacity:.7}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.vid-poster .play{position:absolute;z-index:6;left:6%;bottom:11%;width:clamp(40px,5.2vw,60px);height:clamp(40px,5.2vw,60px);border-radius:50%;background:#fff;color:var(--brand);display:grid;place-items:center;box-shadow:0 0 0 7px rgba(255,255,255,.18),0 18px 34px -10px rgba(0,0,0,.5);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.vid-poster .play::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid rgba(255,255,255,.6);animation:ring 2s ease-out infinite}
+@keyframes ring{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.4);opacity:0}}
+.vid-poster:hover .play{transform:scale(1.08)}
+.vid-poster .play svg{width:40%;height:40%;margin-left:8%;fill:currentColor}
+.vid-poster .playlbl{position:absolute;z-index:6;left:calc(6% + clamp(40px,5.2vw,60px) + 14px);bottom:calc(11% + clamp(40px,5.2vw,60px)/2 - .7em);font-weight:600;font-size:clamp(11px,1.15vw,14px);color:#fff}
+@media (prefers-reduced-motion:reduce){.vid-poster .play::before,.stk{animation:none}}
+@media (max-width:900px){.vid-grid{grid-template-columns:1fr}.vid-frame{transform:none}}
 
 /* WORDS */
 .words{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
@@ -320,6 +371,7 @@ footer .hand{font-size:24px;color:var(--brand)}
   <div class="wrap">
     <a class="logo" href="#top"><span class="mk">EG</span>Ernestine</a>
     <div class="links">
+      <a href="#intro">Intro video</a>
       <a href="#words">Who I am</a>
       <a href="#work">Experience</a>
       <a href="#managers">Kind words</a>
@@ -339,7 +391,7 @@ footer .hand{font-size:24px;color:var(--brand)}
       <p class="intro">I look after customers for a living, and I love it. Customer Success and Support professional in Nairobi, with 4+ years of remote work for teams in Kenya, Rwanda and India.</p>
       <div class="cta">
         <a class="btn primary lg magnetic" href="#contact">Work with me <span class="arr">→</span></a>
-        <a class="btn outline lg magnetic" href="#work">See my experience</a>
+        <a class="btn outline lg magnetic" href="#intro">▶ Watch my intro</a>
       </div>
       <div class="trust">
         <div class="faces" aria-hidden="true"><span>YN</span><span>OE</span><span>+</span></div>
@@ -362,6 +414,27 @@ footer .hand{font-size:24px;color:var(--brand)}
   </div>
 </header>
 
+<section class="intro-sec" id="intro">
+  <div class="wrap vid-grid">
+    <div>
+      <div class="head">
+        <span class="eyebrow">Get to know me</span>
+        <h2>Meet the real Ernestine, <em>beyond the CV.</em></h2>
+        <p>Words on a page only say so much. Press play and hear how I think, how I work, and what I do when a day goes sideways.</p>
+      </div>
+      <div class="vid-meta"><span>▶ Intro video</span><span>A real story from Otto</span><span>Nairobi · GMT+3</span></div>
+    </div>
+    <div>
+      <div class="vid-frame">
+        <span class="vid-tag"><i></i>Press play</span>
+        <div class="vid-box"><a class="vid-poster" id="vidPlay" href="https://www.loom.com/share/a5a354494b304828b83bbee81afef4e4" target="_blank" rel="noopener" aria-label="Play Ernestine's intro video"><span class="txt"><span class="kick">get to know me</span><span class="big">The real<br>Ernestine</span><span class="small">beyond the written words</span></span><span class="pol back"><span class="tape"></span><img src="work-color.jpg" alt=""><span class="cap">deep in it</span></span><span class="pol front"><span class="tape"></span><img src="work-bw.jpg" alt=""><span class="cap">on it!</span></span><span class="stk badge">girl at work ✦</span><span class="stk spark1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg></span><span class="stk spark2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg></span><span class="stk heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.2 2.3 4 6.3 4c2.2 0 3.6 1.2 4.4 2.4h.6C12.1 5.2 13.5 4 15.7 4c4 0 6 4.2 4.3 7.7C19.5 16.4 12 21 12 21z"/></svg></span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="playlbl">Watch my intro</span></a></div>
+      </div>
+      <a class="vid-link" href="https://www.loom.com/share/a5a354494b304828b83bbee81afef4e4" target="_blank" rel="noopener">Open on Loom ↗</a>
+    </div>
+  </div>
+</section>
+
+
 <div aria-hidden="true">
   <div class="marquee"><div class="track">
     <span>Unstoppable</span><span>Loving</span><span>Go-getter</span><span>Hustler</span><span>People person</span><span>Hard worker</span>
@@ -372,6 +445,8 @@ footer .hand{font-size:24px;color:var(--brand)}
     <span>Customer Success</span><span>Onboarding</span><span>Support</span><span>Remote-ready</span><span>Nairobi</span>
   </div></div>
 </div>
+
+
 
 <section id="words">
   <div class="wrap">
@@ -627,5 +702,8 @@ footer .hand{font-size:24px;color:var(--brand)}
 })();
 </script>
 
+<script>
+(function(){var a=document.getElementById('vidPlay');if(!a)return;a.addEventListener('click',function(e){e.preventDefault();var f=document.createElement('iframe');f.src='https://www.loom.com/embed/a5a354494b304828b83bbee81afef4e4?autoplay=1&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';f.title='Ernestine Gasasira intro video';f.allow='autoplay; fullscreen';f.setAttribute('allowfullscreen','');a.parentNode.replaceChild(f,a);});})();
+</script>
 </body>
 </html>
